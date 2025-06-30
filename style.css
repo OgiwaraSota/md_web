@@ -1,0 +1,160 @@
+body {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+}
+h1 {
+  text-align: center;
+}
+p { 
+    margin: 10px;
+}
+/* ファイル入力を中央に配置 */
+#mdFileInput {
+  display: block;          /* ブロック要素にして */
+  margin: 20px auto 20px;  /* 上30px、左右自動、下40pxの余白 */
+  padding: 12px 20px;      /* 内側の余白 */
+  border-radius: 10px;
+  border: 2px solid #555;
+}
+#preview {
+    border: 1px solid #ccc;
+    padding: 25px;
+    margin-top: 20px;
+    background: #fafafa;
+    white-space: normal;
+}
+blockquote {
+    border-left: 3px solid #555;
+    padding-left: 12px;
+    color: #555;
+    margin-left: 0;
+}
+details {
+  margin: 5px 0px; /* 閉じているときの小さい間隔 */
+  padding-left: 12px;
+  transition: margin-bottom 0.3s ease;
+  position: relative;
+  border-left: 1px solid #555;
+}
+
+/* 親トグルの内側にある子トグルに余白を追加 */
+details details {
+  margin-top: 7px;   /* 子トグルの上に余白を作る */
+  margin-left: 20px;  /* 横方向にも少しスペースを空けたい場合 */
+  border-left-color: #888;
+}
+
+details details details {
+    border-left-color: #bbb;
+}
+
+details[open] {
+  margin-bottom: 25px; /* 開いているときは下との余白を広く */
+}
+
+details summary {
+    cursor: pointer;
+    outline: none;
+}
+details > *:not(summary) {
+  margin-left: 1.2em; /* ここでインデントの幅を調整 */
+}
+details summary {
+  list-style: none;           /* デフォルトの矢印を消す */
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;         /* マーク分の余白 */
+  user-select: none;          /* テキスト選択防止（任意） */
+}
+
+/* マークを左に配置しつつ縦中央に */
+details summary::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  top: 50%;               /* 親の高さの中央へ */
+  transform: translateY(-50%); /* 自身の高さの半分分上へ移動 */
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1;
+  pointer-events: none;   /* マークがクリックを邪魔しないように */
+}
+
+/* 開いてるときのマーク */
+details[open] > summary::before {
+  content: '−';
+  color: red;
+}
+
+
+
+/* 表スタイル */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1.5px solid #999;
+    padding: 8px;
+}
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+/* 深い箇条書き全部黒丸 */
+ul, ul ul, ul ul ul, ul ul ul ul {
+    list-style-type: disc !important;
+    margin: 7px 0 7px 1em;
+    padding-left: 1em;
+}
+
+ol{
+    margin: 7px 0 7px 1em;
+    padding-left: 1em;
+}
+
+/* コードブロックのベースデザイン */
+pre code {
+  display: block;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+  overflow-x: auto;
+  white-space: pre-wrap; /* 長い行を折り返したい場合 */
+  /* white-space: pre; にすると横スクロールになります */
+}
+
+/* コードブロック内のテキストカラー */
+pre code {
+  color: #333;
+}
+
+/* インラインコードのデザイン（バッククォートで囲まれたやつ） */
+code {
+  background-color: #eee;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+}
+
+/* コードブロックのスクロールバー（オプション、あればオシャレ） */
+pre code::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre code::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+hr {
+  margin: 25px 0; /* 上下40px、左右は0 */
+  border: none;   /* 必要に応じて線のスタイル調整 */
+  border-top: 1px solid #ccc; /* 薄いグレーの線 */
+}
